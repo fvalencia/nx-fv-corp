@@ -1,0 +1,17 @@
+{
+  "name": "processor-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "implicitDependencies": ["processor"],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
+      "options": {
+        "jestConfig": "apps/processor-e2e/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "dependsOn": ["processor:build"]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "paths": {
+      "infra/*": ["src/app/infrastructure/*"], 
+      "domain/*": ["src/app/domain/*"], 
+      "application/*": ["src/app/application/*"] 
+    }
+  }
+}

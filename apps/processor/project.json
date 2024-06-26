@@ -1,0 +1,24 @@
+{
+  "name": "processor",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/processor/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "processor:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "processor:build:development"
+        },
+        "production": {
+          "buildTarget": "processor:build:production"
+        }
+      }
+    }
+  }
+}

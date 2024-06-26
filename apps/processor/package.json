@@ -1,0 +1,11 @@
+{
+    "name": "processor-service",
+    "version": "1.0.0",
+    "author": "Felipe Valencia <luisfelipevalenciatellez@gmail.com>",
+    "scripts": {
+        "typeorm-generate-migrations": "npx tsc ./migration.config.ts --outDir ./dist && npx typeorm -d dist/migration.config.js migration:generate",
+        "db:migrate:run": "yarn typeorm migration:run -d ./migration.config.ts",
+        "db:migrate:generate": "yarn typeorm migration:generate -d ./migration.config.ts",
+        "typeorm": "../../node_modules/.bin/ts-node --project ./tsconfig.app.json -r tsconfig-paths/register ../../node_modules/typeorm/cli.js"
+    }
+  }

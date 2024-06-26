@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+# postgresql
+# ***************************************
+  postgres:
+    image: postgres:latest
+    container_name: nx-nestjs-microservice-pg
+    restart: always
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./db/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+      - ./db/pgData:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+    networks:
+      - nx-nestjs-microservice
+# rabbitmq 
+# ***************************************
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_VHOST: vhost
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - nx-nestjs-microservice
+networks:
+  nx-nestjs-microservice:
